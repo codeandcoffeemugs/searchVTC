@@ -1,0 +1,109 @@
+reset {margin:0;padding:0;}
+
+body {font-family:Helvetica;}
+
+@font-face {
+    font-family: 'ChunkFiveRegular';
+    src: url('font/Chunkfive-webfont.eot');
+    src: url('font/Chunkfive-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/Chunkfive-webfont.woff') format('woff'),
+         url('font/Chunkfive-webfont.ttf') format('truetype'),
+         url('font/Chunkfive-webfont.svg#ChunkFiveRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+input {
+  font-size:2.7em;
+  }
+
+form {
+  position:relative;
+  top:20px;
+  left:100px;
+}
+#container {
+  
+}
+input#searchStr {
+  -webkit-box-shadow:1px 1px 5px #fff;
+   -moz-box-shadow:1px 1px 5px #fff;
+   box-shadow:1px 1px 5px #fff;
+   border-top:3px solid rgba(0, 0, 0, .2);
+   border-left:3px solid rgba(0, 0, 0, .2);
+   border-radius:7px;
+}
+
+button {
+  padding:10px 6px;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+  background:#ffffff;
+  
+}
+
+#answer {
+  width:600px;
+  margin:150px auto;
+}
+
+#answer p {
+  color:#A69068;
+  text-align:center;
+  font-size:5em;
+  font-family:'ChunkFiveRegular', Arial, sans-serif;
+  -webkit-text-stroke: 3px #7A3127;
+  -moz-text-stroke: 3px #7A3127;
+  text-stroke: 3px #7A3127;
+  /*-webkit-text-fill-color:transparent;*/
+  text-shadow:1px 2px 5px rgba(0, 0, 0, .9);
+  letter-spacing:5px;
+}
+
+header {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100px;
+  background-image:url('bg.png');
+  background-repeat:repeat-x;
+  -webkit-box-shadow:0px 1px 9px #000000;
+}
+
+
+
+td {
+  font-size:1.3em;
+  color:#333;
+  padding:10px;
+  border-radius:10px;
+}
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+/*****************************
+Media Queries
+*****************************/
+
+@media screen and (max-width:800px) {
+  body {
+    background:#efefef;
+  }
+  #answer p {
+    font-size:2.5em;
+    text-stroke:1px #7A3127;
+  }
+}
+
+@media screen and (min-width:1300px) {
+  #answer {
+    width:1000px;
+  }
+  #answer p {
+    font-size:9em;
+  }
+}
