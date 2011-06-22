@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8 />
+  <title>search vtc</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="vtc.css" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+  <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <form>
+    <input type="text" name="searchStr" id="searchStr" x-webkit-speech />
+    <button>Find It</button>
+  </form>
+  <div id="answer"></div>
+  <script>
+  $(document).ready(function() {
+    $('button').click(function() {
+      var toFind = $('#searchStr').val();
+      $.post('search.php', { searchStr: toFind }, function(response) {
+        var tableAnswer = $(response).find('.boxContentMainAlt');
+        //console.log('Here what came back', tableAnswer);
+        $('#answer').html(tableAnswer);
+      });
+      return false;
+    })
+  });
+    
+  </script>
+</body>
+</html>
