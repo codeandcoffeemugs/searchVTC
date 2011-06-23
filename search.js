@@ -22,7 +22,7 @@ $(document).ready(function() {
     var toFind = $('#searchStr').val();
     $.post('search.php', { searchStr: toFind }, function(response) {
       var tableAnswer = $(response).find('.boxContentMainAlt');
-      //console.log('Here what came back', tableAnswer);
+      console.log('Here what came back', tableAnswer);
       $('#answer').html(tableAnswer);
     });
     return false;
