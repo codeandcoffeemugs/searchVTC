@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="vtc.css" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+  <script type="text/javascript" src="search.js"></script>
+</head>
+<body onload="init()">
+  <header id="fixedDiv">
+    <form>
+       <input type="text" name="searchStr" id="searchStr" x-webkit-speech speech onwebkitspeechchange="searchTheSite()" />
+     </form>
+  </header>
+ <div id="container"></div>
+  <div id="answer">
+    <p>What would you like to learn today?</p>
+    <h6>There are over 900 courses to choose from.</h6>
+  </div>
+</body>
+</html>

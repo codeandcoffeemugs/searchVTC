@@ -17,17 +17,33 @@ window.onscroll = function() {
 };
 
 $(document).ready(function() {
-  $('button').click(function() {
-    $('#answer').html("<img src='22.gif' />");
-    var toFind = $('#searchStr').val();
-    $.post('search.php', { searchStr: toFind }, function(response) {
-      var tableAnswer = $(response).find('.boxContentMainAlt');
-      console.log('Here what came back', tableAnswer);
-      $('#answer').html(tableAnswer);
-    });
-    return false;
+  $('#searchStr').keypress(function() {
+    var timeout = setTimeout("searchTheSite()",1500);
   });
-  $('#searchStr').mousedown(function(){
-    $(this).val("");
-  });
+  // $('#searchStr').mousedown(function(){
+  //     $(this).val("");
+  //     $('#answer').html('<p>What would you like to learn today?</p>');
+  //   });
 });
+var href = [];
+function searchTheSite() {
+  $('#answer').html("<img src='22.gif' />");
+  var toFind = $('#searchStr').val();
+  $.post('search.php', { searchStr: toFind }, function(response) {
+    var tableAnswer = $(response).find('.boxContentMainAlt');
+    handleTable(tableAnswer);
+    console.log('Here what came back', tableAnswer);
+    $('#answer').html(tableAnswer);
+  });
+  return false;
+}
+
+function handleTable(table) {
+  table.find('tbody tr').each(function() {
+    var href = $('a', this).attr('href');
+    var newHref = ("javascript:chrome.tabs.create({'url':" +href+ ", 'selected':true});window.close();");
+    var linkTitle = $('a', this).text();
+    console.log('href ', newHref);
+    console.log('title ', linkTitle);
+  });
+}
