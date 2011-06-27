@@ -16,15 +16,22 @@ window.onscroll = function() {
       if (!tableAnswer.text()) {
         $('#answer').html('<p>Sorry, No Results.</p>');
         return;
-      } 
+      }
       $('#answer').html(tableAnswer);
       $('#answer a').attr('target', '__blank');
+      $('#answer div table tbody tr').each(function() {
+        $('td:nth-child(3)').remove();
+      });
     });
     return false;
   }
 
   $(document).ready(function() {
-    $('#searchStr').keypress(function() {
+    
+    $('#searchStr').keypress(function(e) {
+      if (e.keyCode == 13) {
+        e.preventDefault();
+      }
     var timeout = setTimeout("searchTheSite()",1500);
   });
     // $('#searchStr').mousedown(function(){
